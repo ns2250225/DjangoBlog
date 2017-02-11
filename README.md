@@ -5,3 +5,9 @@
 - 3) python manage.py makemigrations
 - 4) python manage.py migrate
 - 5) python manage.py runserver 0.0.0.0:8000    
+
+# 功能
+- 1) 集成xadmin后台管理系统
+- 2）集成ueditor编辑器
+- 3）文章标签查询功能
+- 4）全局搜索文章功能

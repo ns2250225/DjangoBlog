@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block tag_menu %}
+    {% for tag in tags %}
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="{% url 'tag' tagId=tag.id %}">{{ tag }}</a></li>
+    {% endfor %}
+{% endblock %}
+
+{% block blog_content %}
+    {% for post in posts_list %}
+        <div class="article-info">
+            <a href="{% url 'detail' id=post.id %}" class="sui-text-xxlarge sui-text-info">{{ post.article_title }}</a>
+            <span class="sui-label label-success">{{ post.article_tag.all.0 }}</span>
+            <span class="sui-label label-">{{ post.article_add_time }}</span>
+            <hr>
+        </div>
+    {% endfor %}
+{% endblock %}

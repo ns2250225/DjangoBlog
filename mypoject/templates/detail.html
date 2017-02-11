@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block tag_menu %}
+    {% for tag in tags %}
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="{% url 'tag' tagId=tag.id %}">{{ tag }}</a></li>
+    {% endfor %}
+{% endblock %}
+
+{% block blog_content %}
+    <div class="detail_content">
+        <h1>{{ posts.article_title }}</h1>
+        {% autoescape off %}
+        <p>{{ posts.article_content }}</p>
+        {% endautoescape %}
+    </div>
+{% endblock %}

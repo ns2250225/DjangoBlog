@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>博客主页</title>
+
+    <!-- 引用 SUI 前端框架-->
+    <link href="http://g.alicdn.com/sj/dpl/1.5.1/css/sui.min.css" rel="stylesheet">
+    <style>
+        .main-wrapper {
+            width: 800px;
+            margin: 0 auto;
+        }
+        .blog-title {
+            text-align: center;
+        }
+        .blog-content {
+            margin: 0 auto;
+        }
+        .article-info {
+            height: 10px;
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-wrapper">
+        <!--  博客标题 -->
+        <div class="blog-title">
+            <h1>Python代码库</h1>
+        </div>
+
+        <!--  博客导航栏 -->
+        <div class="sui-navbar navbar-inverse">
+          <div class="navbar-inner"><a href="#" class="sui-brand">Blog</a>
+            <ul class="sui-nav">
+              <li class="active"><a href="/">首页</a></li>
+              <li><a href="https://github.com/ns2250225">Github</a></li>
+              <li><a href="#">关于我</a></li>
+              <li><a href="/xadmin">登陆</a></li>
+              <li class="sui-dropdown"><a href="javascript:void(0);" data-toggle="dropdown" class="dropdown-toggle">标签 <i class="caret"></i></a>
+                <ul role="menu" class="sui-dropdown-menu">
+                  {% block tag_menu %}
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Django</a></li>
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Tornado</a></li>
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Flask</a></li>
+                  {% endblock %}
+                </ul>
+              </li>
+            </ul>
+            <form class="sui-form sui-form pull-right" method="get" action="{% url 'search' %}">
+              <input type="text" placeholder="文章关键字..." name="kw">
+              <button class="sui-btn" type="submit">搜索</button>
+            </form>
+          </div>
+        </div>
+
+        <!--  博客正文 -->
+        <div class="blog-content">
+            {% block blog_content %}
+            <div class="article-info">
+                <a href="#" class="sui-text-xxlarge sui-text-info">article1</a>
+                <span class="sui-label label-success">字符串</span>
+                <span class="sui-label label-">2017-02-10</span>
+                <hr>
+            </div>
+            <div class="article-info">
+                <a href="#" class="sui-text-xxlarge sui-text-info">article2article2article2</a>
+                <span class="sui-label label-success">字符串</span>
+                <span class="sui-label label-">2017-02-10</span>
+                <hr>
+            </div>
+            <div class="article-info">
+                <a href="#" class="sui-text-xxlarge sui-text-info">article3article2article2article2</a>
+                <a href="#"><span class="sui-label label-success">字符串</span></a>
+                <a href="#"><span class="sui-label label-">2017-02-10</span></a>
+                <hr>
+            </div>
+            {% endblock %}
+        </div>
+        {% block pagination %}
+        {% endblock %}
+    </div>
+
+    <!-- 引用 SUI 前端框架-->
+    <script type="text/javascript" src="http://g.alicdn.com/sj/lib/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="http://g.alicdn.com/sj/dpl/1.5.1/js/sui.min.js"></script>
+</body>
+</html>
+
